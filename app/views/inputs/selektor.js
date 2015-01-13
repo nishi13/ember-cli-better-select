@@ -13,6 +13,7 @@ export default Ember.View.extend(selektorMixin, {
     var option = this.get('optionValue');
     if (arguments.length === 1) {
       var value = this.get('value');
+      console.log(value);
       if (value !== undefined && value !== null) {
         return this.get('content').find(function (item) {
           return get(item, option) === value;
@@ -21,6 +22,7 @@ export default Ember.View.extend(selektorMixin, {
     // setter
     } else {
       this.set('value', selected && get(selected, option));
+      console.log(selected, this.get('value'));
       return selected;
     }
   }.property('value'),
